@@ -1,9 +1,10 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
+import LeanCanvas from "./leanCanvasTemplate";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [idea, setIdea] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -14,17 +15,21 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({ idea }),
       });
 
       const data = await response.json();
       if (response.status !== 200) {
-        throw data.error || new Error(`Request failed with status ${response.status}`);
+        throw (
+          data.error ||
+          new Error(`Request failed with status ${response.status}`)
+        );
       }
-
-      setResult(data.result);
-      setAnimalInput("");
-    } catch(error) {
+      let parsedObject = JSON.parse(data.result.replace(/\n/g, ""));
+      console.log(parsedObject);
+      setResult(parsedObject);
+      setIdea("");
+    } catch (error) {
       // Consider implementing your own error handling logic here
       console.error(error);
       alert(error.message);
@@ -40,18 +45,19 @@ export default function Home() {
 
       <main className={styles.main}>
         <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <h3>Generate Lean Canvas</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+            name="idea"
+            placeholder="Enter the idea"
+            value={idea}
+            onChange={(e) => setIdea(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Generate fields" />
         </form>
-        <div className={styles.result}>{result}</div>
+        {/* <div className={styles.result}>{result}</div> */}
+        {result !== undefined && <LeanCanvas leanObject={result} />}
       </main>
     </div>
   );
