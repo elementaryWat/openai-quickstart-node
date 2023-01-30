@@ -31,7 +31,7 @@ export default async function (req, res) {
       model: "text-davinci-003",
       prompt: generatePrompt("problem", idea),
       temperature: 0.6,
-      max_tokens: 2622,
+      max_tokens: 2700,
       top_p: 1,
       frequency_penalty: 0.8,
       presence_penalty: 0,
@@ -59,21 +59,35 @@ function generatePrompt(field, idea) {
   )}`;
 }
 
-const LEAN_CANVAS_OBJECT = {
+export const LEAN_CANVAS_OBJECT = {
   name: "Project Name",
-  problem: "Problem statement",
   customers: {
     segments: ["Customer segment 1", "Customer segment 2"],
-    pains: ["Pain point 1", "Pain point 2"],
-    gains: ["Gain 1", "Gain 2"],
+    pains: ["Pain point 1", "Pain point 2", "Pain point 3"],
   },
   solution: {
     uniqueValueProposition: "Unique value proposition",
-    highLevelConcept: "High level concept",
     keyMetrics: ["metric 1", "metric 2", "metric n"],
+    existingAlternatives: ["alternative 1", "alternative 2", "alternative n"],
   },
   channels: ["Channel 1", "Channel 2"],
   unfairAdvantages: ["Unfair advantage 1", "Unfair advantage 2"],
   costStructure: ["cost 1", "cost 2"],
   revenueStreams: ["Revenue stream 1", "Revenue stream 2"],
+};
+export const LEAN_CANVAS_COLORS = {
+  name: "#4d4d4d",
+  customers: {
+    segments: "#f7e2d2",
+    pains: "#c5e7f9",
+  },
+  solution: {
+    uniqueValueProposition: "#e5cef4",
+    keyMetrics: "#dce4f9",
+    existingAlternatives: "#c5e7f9",
+  },
+  channels: "#f7d8d5",
+  unfairAdvantages: "#f9e1ee",
+  costStructure: "#f8f0d1",
+  revenueStreams: "#f9f7d2",
 };

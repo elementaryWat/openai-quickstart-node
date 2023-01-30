@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
+import { SAMPLE_LEAN_CANVAS } from "./api/sample_response";
 import styles from "./index.module.css";
 import LeanCanvas from "./leanCanvasTemplate";
 
@@ -10,23 +11,23 @@ export default function Home() {
   async function onSubmit(event) {
     event.preventDefault();
     try {
-      const response = await fetch("/api/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ idea }),
-      });
+      // const response = await fetch("/api/generate", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ idea }),
+      // });
 
-      const data = await response.json();
-      if (response.status !== 200) {
-        throw (
-          data.error ||
-          new Error(`Request failed with status ${response.status}`)
-        );
-      }
-      let parsedObject = JSON.parse(data.result.replace(/\n/g, ""));
-      console.log(parsedObject);
+      // const data = await response.json();
+      // if (response.status !== 200) {
+      //   throw (
+      //     data.error ||
+      //     new Error(`Request failed with status ${response.status}`)
+      //   );
+      // }
+      // let parsedObject = JSON.parse(data.result.replace(/\n/g, ""));
+      let parsedObject = SAMPLE_LEAN_CANVAS;
       setResult(parsedObject);
       setIdea("");
     } catch (error) {
@@ -44,7 +45,6 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
         <h3>Generate Lean Canvas</h3>
         <form onSubmit={onSubmit}>
           <input
@@ -54,7 +54,7 @@ export default function Home() {
             value={idea}
             onChange={(e) => setIdea(e.target.value)}
           />
-          <input type="submit" value="Generate fields" />
+          <input type="submit" value="Generate Lean Canvas" />
         </form>
         {/* <div className={styles.result}>{result}</div> */}
         {result !== undefined && <LeanCanvas leanObject={result} />}
