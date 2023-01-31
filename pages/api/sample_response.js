@@ -1,26 +1,31 @@
 export const SAMPLE_LEAN_CANVAS = {
-  name: "Recipe Veganizer",
-  customers: {
-    segments: ["Vegan/Vegetarian", "Flexitarian"],
-    pains: [
-      "Difficulty finding vegan recipes",
-      "Inconvenience of having to modify existing recipes",
-    ],
-  },
-  solution: {
-    uniqueValueProposition:
-      "Modify existing recipes for use vegan ingredients quickly and easily",
-    keyMetrics: ["Time saved in meal planning", "Number of veganized recipes"],
-    existingAlternatives: [
-      "Manually modifying recipes",
-      "Using pre-veganized recipe websites",
-    ],
-  },
-  channels: ["Online advertising", "Social Media"],
-  unfairAdvantages: [
-    "Expert knowledge from professional chefs",
-    "Ability to personalize the veganization of a recipe",
+  name: "Open AI Curriculum Optimization Service",
+  customerSegments: ["Job Seekers", "HR Professionals"],
+  customerPains: [
+    "Difficulty finding the right job candidates",
+    "Time-consuming manual review of resumes",
   ],
-  costStructure: ["Development costs", "Marketing costs"],
-  revenueStreams: ["Subscriptions fees", "Advertising revenue"],
+  uniqueValueProposition:
+    "Optimizing resumes with Open AI to quickly identify the best job candidates for specific positions.",
+  keyMetrics: ["Number of resumes optimized", "Time saved in manual review"],
+  existingAlternatives: [
+    "Manual resume review",
+    "Traditional AI resume optimization services",
+  ],
+  channels: [
+    "Online distribution platform for employers and job seekers.",
+    "Direct sales to HR professionals and recruiters. ",
+  ],
+  unfairAdvantages: [
+    "Integration with Open AI API provides access to latest technology.",
+    "State-of-the-art algorithms for resume optimization.",
+  ],
+  costStructure: [
+    "Development costs for website and Open AI integration.",
+    "Marketing costs.",
+  ],
+  revenueStreams: [
+    "Subscription fees from employers and recruiters.",
+    "Fee per optimized resume.",
+  ],
 };

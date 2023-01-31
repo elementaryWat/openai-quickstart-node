@@ -61,15 +61,11 @@ function generatePrompt(field, idea) {
 
 export const LEAN_CANVAS_OBJECT = {
   name: "Project Name",
-  customers: {
-    segments: ["Customer segment 1", "Customer segment 2"],
-    pains: ["Pain point 1", "Pain point 2", "Pain point 3"],
-  },
-  solution: {
-    uniqueValueProposition: "Unique value proposition",
-    keyMetrics: ["metric 1", "metric 2", "metric n"],
-    existingAlternatives: ["alternative 1", "alternative 2", "alternative n"],
-  },
+  customerSegments: ["Customer segment 1", "Customer segment 2"],
+  customerPains: ["Pain point 1", "Pain point 2", "Pain point 3"],
+  uniqueValueProposition: "Unique value proposition",
+  keyMetrics: ["metric 1", "metric 2", "metric n"],
+  existingAlternatives: ["alternative 1", "alternative 2", "alternative n"],
   channels: ["Channel 1", "Channel 2"],
   unfairAdvantages: ["Unfair advantage 1", "Unfair advantage 2"],
   costStructure: ["cost 1", "cost 2"],
@@ -77,15 +73,11 @@ export const LEAN_CANVAS_OBJECT = {
 };
 export const LEAN_CANVAS_COLORS = {
   name: "#4d4d4d",
-  customers: {
-    segments: "#f7e2d2",
-    pains: "#c5e7f9",
-  },
-  solution: {
-    uniqueValueProposition: "#e5cef4",
-    keyMetrics: "#dce4f9",
-    existingAlternatives: "#c5e7f9",
-  },
+  customerSegments: "#f7e2d2",
+  customerPains: "#c5e7f9",
+  uniqueValueProposition: "#e5cef4",
+  keyMetrics: "#dce4f9",
+  existingAlternatives: "#c5e7f9",
   channels: "#f7d8d5",
   unfairAdvantages: "#f9e1ee",
   costStructure: "#f8f0d1",
