@@ -11,23 +11,23 @@ export default function Home() {
   async function onSubmit(event) {
     event.preventDefault();
     try {
-      // const response = await fetch("/api/generate", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({ idea }),
-      // });
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ idea }),
+      });
 
-      // const data = await response.json();
-      // if (response.status !== 200) {
-      //   throw (
-      //     data.error ||
-      //     new Error(`Request failed with status ${response.status}`)
-      //   );
-      // }
-      // let parsedObject = JSON.parse(data.result.replace(/\n/g, ""));
-      let parsedObject = SAMPLE_LEAN_CANVAS;
+      const data = await response.json();
+      if (response.status !== 200) {
+        throw (
+          data.error ||
+          new Error(`Request failed with status ${response.status}`)
+        );
+      }
+      let parsedObject = JSON.parse(data.result.replace(/\n/g, ""));
+      // let parsedObject = SAMPLE_LEAN_CANVAS;
       setResult(parsedObject);
       setIdea("");
     } catch (error) {
